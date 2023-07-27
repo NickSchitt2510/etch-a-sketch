@@ -1,0 +1,25 @@
+.body {
+    box-sizing: border-box;
+}
+.outline {
+    /* border: 1px solid black; */
+    box-shadow: inset 2px 2px;
+}
+
+.container {
+    display: flex;
+    width: 600px;
+    height: 600px;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cell {
+    flex: 1;
+}
