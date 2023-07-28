@@ -41,6 +41,7 @@ function removeGrid() {
 function changeGridSize() {
     let slider = document.getElementById('gridRange');
     createGrid(slider.value);
+    hoverEffect('change-black');
     slider.onchange = function () {
         removeGrid();
         console.log(this.value);
@@ -64,6 +65,6 @@ function toggleNoLine() {
     container.style.borderLeft = "2px solid black";
 }
 
+// Create random color
 
 changeGridSize();
-hoverEffect('change-black');

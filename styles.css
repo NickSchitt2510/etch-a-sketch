@@ -1,5 +1,8 @@
-.body {
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive, sans-serif;
 }
 .outline {
     /* border: 1px solid black; */
