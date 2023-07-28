@@ -23,3 +23,7 @@
 .cell {
     flex: 1;
 }
+
+.change-black {
+    background-color: black;
+}

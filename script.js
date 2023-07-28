@@ -18,6 +18,16 @@ function createGrid() {
     }
 }
 
-
+function hoverEffect(className) {
+    // Set up eventlistener for all the div
+    const cells = document.querySelectorAll('.container > div > div')
+    cells.forEach((cell) => {
+        console.log(cell);
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add(className);
+        });
+    })
+}
 
 createGrid();
+hoverEffect('change-black');
