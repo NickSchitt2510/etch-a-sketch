@@ -69,16 +69,16 @@ function toggleNoLine() {
 function clearCanvas() {
     const cells = document.querySelectorAll('.canvas > * > *');
     cells.forEach((cell) => {
-        cell.classList.add('change-white');
+        cell.classList.remove('change-black');
     })
 }
+
 
 // set up even listener for all buttons
 function buttonFunction() {
     const clear = document.querySelector('#clear');
     console.log(clear);
     clear.addEventListener('click', clearCanvas);
-
 }
 
 // Create random color
