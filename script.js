@@ -66,7 +66,22 @@ function toggleNoLine() {
 }
 
 // clear the canvas
+function clearCanvas() {
+    const cells = document.querySelectorAll('.canvas > * > *');
+    cells.forEach((cell) => {
+        cell.classList.add('change-white');
+    })
+}
+
+// set up even listener for all buttons
+function buttonFunction() {
+    const clear = document.querySelector('#clear');
+    console.log(clear);
+    clear.addEventListener('click', clearCanvas);
+
+}
 
 // Create random color
 
 changeGridSize();
+buttonFunction();
