@@ -42,8 +42,9 @@ main {
 /* down section */
 
 .down {
-    margin: 1rem 2rem;
+    margin: 2rem 2rem;
     display: flex;
+    justify-content: center;
 }
 
 /* buttons section */
@@ -52,9 +53,10 @@ button {
     cursor: pointer;
 }
 
+
 /* Pressed effect */
 .function-btn {
-    margin: 1rem 1rem;
+    margin: 1rem;
     padding: 0.5rem 0.5rem;
     font-size: 20px;
     font-family: inherit;
@@ -84,7 +86,6 @@ button {
     background-color: #bbdceb;
     border-radius: 16px;
     box-shadow: 6px 6px #999;
-
 }
 
 .canvas {
