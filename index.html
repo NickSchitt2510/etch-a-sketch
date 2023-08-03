@@ -14,18 +14,23 @@
         </header>
         <main>
             <section class="up">
-                <div class="slidecontainer">
-                    <label>Drag to change grid size -> </label>
-                    <input type="range" min="2" max="100" value="16" class="slider" id="gridRange">
+                <label>Drag or Type to change grid size</label>
+                <div class="down">
+                    <div class="slidecontainer">
+                        <input type="range" min="2" max="100" value="16" class="slider" id="gridRange">
+                        <label></label>
+                    </div>
                 </div>
-                <label class="grid-size"></label>
             </section>
             <section class="down">
                 <div class="buttons">
-                    <button class="function-btn" id="clear">Clear</button>
+                    <button class="button function-btn" id="clear">Clear</button>
                 </div>
-                <div class="container" id="container">
-                    <div class="canvas" id="canvas"></div>
+                <div class="right">
+                    <label>16X16 Grid</label>
+                    <div class="container" id="container">
+                        <div class="canvas" id="canvas"></div>
+                    </div>
                 </div>
             </section>
         </main>

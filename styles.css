@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* default setting */
-html, body, header, main, footer, section {
+html, body, header, main, footer, section, label {
     margin: 0;
     padding: 0;
 }
@@ -45,10 +45,11 @@ main {
     margin: 2rem 2rem;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* buttons section */
-button {
+.button {
     font-family: inherit;
     cursor: pointer;
 }
@@ -86,11 +87,11 @@ button {
     background-color: #bbdceb;
     border-radius: 16px;
     box-shadow: 6px 6px #999;
+    padding: 2rem;
 }
 
 .canvas {
     display: flex;
-    margin: 2rem;
     width: 500px;
     height: 500px;
     border-right: 2px solid black;

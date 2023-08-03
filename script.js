@@ -38,17 +38,22 @@ function removeGrid() {
     });
 }
 
-function changeGridSize() {
+function changeGridSizeBySlider() {
     let slider = document.getElementById('gridRange');
+    const size = document.querySelector('.slidecontainer > label');
     createGrid(slider.value);
+    size.textContent = slider.value;
     hoverEffect('change-black');
-    slider.onchange = function () {
+    slider.oninput = function () {
         removeGrid();
-        console.log(this.value);
+        size.textContent = this.value;
         createGrid(this.value);
+        const label = document.querySelector('.right > label');
+        label.textContent = `${slider.value}X${slider.value} Grid`;
         hoverEffect('change-black');
-    }
+    };
 }
+
 
 function toggleNoLine() {
     const cells = document.querySelectorAll('.canvas > * > *');
@@ -83,5 +88,5 @@ function buttonFunction() {
 
 // Create random color
 
-changeGridSize();
+changeGridSizeBySlider();
 buttonFunction();
