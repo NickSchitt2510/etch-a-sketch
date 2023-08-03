@@ -1,3 +1,20 @@
+function changeGridSizeBySlider() {
+    let slider = document.getElementById('gridRange');
+    const size = document.querySelector('.slidecontainer > label');
+    createGrid(slider.value);
+    size.textContent = slider.value;
+    changeBlack();
+    slider.oninput = function () {
+        removeGrid();
+        size.textContent = this.value;
+        createGrid(this.value);
+        const label = document.querySelector('.right > label');
+        label.textContent = `${slider.value}X${slider.value} Grid`;
+        changeBlack();
+    };
+}
+
+
 // Create div of the grid
 function createGrid(gridSize) {
 
@@ -16,30 +33,6 @@ function createGrid(gridSize) {
     }
 }
 
-function changeBlack() {
-    clearCanvas();
-    // Set up eventlistener for all the div
-    const cells = document.querySelectorAll('.canvas > div > div')
-    cells.forEach((cell) => {
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
-        });
-    })
-}
-
-function changeRainbow() {
-    clearCanvas();
-    const cells = document.querySelectorAll('.canvas > div > div')
-    cells.forEach((cell) => {
-        cell.addEventListener('mouseover', () => {
-            let randColor = generateRandomColor();
-            cell.style.backgroundColor = randColor;
-            if (cell.style.backgroundColor) {
-                cell.style.backgroundColor = randColor;
-            }
-        });
-    })
-}
 
 function removeGrid() {
     // Remove grid
@@ -53,47 +46,44 @@ function removeGrid() {
     });
 }
 
-function changeGridSizeBySlider() {
-    let slider = document.getElementById('gridRange');
-    const size = document.querySelector('.slidecontainer > label');
-    createGrid(slider.value);
-    size.textContent = slider.value;
-    changeBlack();
-    slider.oninput = function () {
-        removeGrid();
-        size.textContent = this.value;
-        createGrid(this.value);
-        const label = document.querySelector('.right > label');
-        label.textContent = `${slider.value}X${slider.value} Grid`;
-        changeBlack();
-    };
-}
 
-
-function toggleNoLine() {
-    const cells = document.querySelectorAll('.canvas > * > *');
+function changeBlack() {
+    clearCanvas();
+    // Set up eventlistener for all the div
+    const cells = document.querySelectorAll('.canvas > div > div')
     cells.forEach((cell) => {
-        cell.classList.remove('outline');
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'black';
+        });
     });
-    const cols = document.querySelectorAll('.canvas > *');
-    cols.forEach((col) => {
-        col.classList.remove('outline');
-    });
-    const canvas = document.getElementById('canvas');
-    console.log(canvas);
-    canvas.style.borderTop = "2px solid black";
-    canvas.style.borderLeft = "2px solid black";
 }
+
 
 // clear the canvas
 function clearCanvas() {
     const cells = document.querySelectorAll('.canvas > * > *');
     cells.forEach((cell) => {
         cell.style.backgroundColor = 'white';
-
-    })
+    });
 }
 
+
+function changeRainbow() {
+    clearCanvas();
+    const cells = document.querySelectorAll('.canvas > div > div')
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            let randColor = generateRandomColor();
+            cell.style.backgroundColor = randColor;
+            if (cell.style.backgroundColor) {
+                cell.style.backgroundColor = randColor;
+            }
+        });
+    });
+}
+
+
+// Create random color
 function generateRandomColor() {
     let maxVal = 0xFFFFFF; // 16777215
     let randomNumber = Math.random() * maxVal; // returns a floating point random number
@@ -116,7 +106,25 @@ function buttonFunction() {
     black.addEventListener('click', changeBlack);
 }
 
-// Create random color
 
 changeGridSizeBySlider();
 buttonFunction();
+
+
+// function feature
+// function toggleNoLine() {
+//     const cells = document.querySelectorAll('.canvas > * > *');
+//     cells.forEach((cell) => {
+//         cell.classList.remove('outline');
+//     });
+//     const cols = document.querySelectorAll('.canvas > *');
+//     cols.forEach((col) => {
+//         col.classList.remove('outline');
+//     });
+//     const canvas = document.getElementById('canvas');
+//     console.log(canvas);
+//     canvas.style.borderTop = "2px solid black";
+//     canvas.style.borderLeft = "2px solid black";
+// }
+
+
