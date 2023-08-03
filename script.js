@@ -16,12 +16,27 @@ function createGrid(gridSize) {
     }
 }
 
-function hoverEffect(className) {
+function changeBlack() {
+    clearCanvas();
     // Set up eventlistener for all the div
     const cells = document.querySelectorAll('.canvas > div > div')
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
-            cell.classList.add(className);
+            cell.style.backgroundColor = 'black';
+        });
+    })
+}
+
+function changeRainbow() {
+    clearCanvas();
+    const cells = document.querySelectorAll('.canvas > div > div')
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            let randColor = generateRandomColor();
+            cell.style.backgroundColor = randColor;
+            if (cell.style.backgroundColor) {
+                cell.style.backgroundColor = randColor;
+            }
         });
     })
 }
@@ -43,14 +58,14 @@ function changeGridSizeBySlider() {
     const size = document.querySelector('.slidecontainer > label');
     createGrid(slider.value);
     size.textContent = slider.value;
-    hoverEffect('change-black');
+    changeBlack();
     slider.oninput = function () {
         removeGrid();
         size.textContent = this.value;
         createGrid(this.value);
         const label = document.querySelector('.right > label');
         label.textContent = `${slider.value}X${slider.value} Grid`;
-        hoverEffect('change-black');
+        changeBlack();
     };
 }
 
@@ -74,7 +89,8 @@ function toggleNoLine() {
 function clearCanvas() {
     const cells = document.querySelectorAll('.canvas > * > *');
     cells.forEach((cell) => {
-        cell.classList.remove('change-black');
+        cell.style.backgroundColor = 'white';
+
     })
 }
 
@@ -93,8 +109,11 @@ function generateRandomColor() {
 // set up even listener for all buttons
 function buttonFunction() {
     const clear = document.querySelector('#clear');
-    console.log(clear);
     clear.addEventListener('click', clearCanvas);
+    const rainbow = document.querySelector('#rainbow');
+    rainbow.addEventListener('click', changeRainbow);
+    const black = document.querySelector('#black');
+    black.addEventListener('click', changeBlack);
 }
 
 // Create random color
