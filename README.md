@@ -1,6 +1,8 @@
 # etch-a-sketch
 TOP project
 
+Site is live at: [https://nickschitt2510.github.io/etch-a-sketch/](https://nickschitt2510.github.io/etch-a-sketch/)
+
 todo:
 
 1. fix rainbow mode. Only change color if the cell has not changed before.
